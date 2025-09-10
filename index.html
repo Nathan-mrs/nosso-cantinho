@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan & Keury — Nosso Cantinho</title>
+  <meta name="description" content="Nosso site: memória viva da nossa história."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💖</text></svg>">
+  <!-- Fonte opcional (pode remover se quiser tudo local) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b10;            /* Fundo */
+      --card:#12121a;          /* Cartões */
+      --muted:#a3a3b2;         /* Texto secundário */
+      --text:#ffffff;          /* Texto principal */
+      --brand:#ff5fa2;         /* Rosa */
+      --brand-2:#7a5cff;       /* Roxo */
+      --ring: rgba(255,95,162,.35);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;
+      background:radial-gradient(1200px 800px at 10% -10%, rgba(255,95,162,.15), transparent 60%),
+                 radial-gradient(1000px 600px at 110% 10%, rgba(122,92,255,.12), transparent 60%),
+                 linear-gradient(180deg,#0a0a0f,#0b0b10 15% 85%,#0a0a0f);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand)}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header.nav{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.1) blur(8px);
+      background:linear-gradient(180deg, rgba(11,11,16,.9), rgba(11,11,16,.6));
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px
+    }
+    .brand .heart{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 6px var(--ring);
+      animation:pulse 2.8s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 6px var(--ring)} 50%{box-shadow:0 0 0 10px rgba(255,95,162,.12)} 100%{box-shadow:0 0 0 6px var(--ring)}}
+    .nav-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      border:none; border-radius:999px; padding:10px 16px; font-weight:600; cursor:pointer;
+      background:#1a1a26; color:#fff; transition:.2s transform,.2s background; display:inline-flex; align-items:center; gap:8px
+    }
+    .btn:hover{transform:translateY(-1px); background:#222234}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; padding:40px 0}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), transparent), var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 10px 40px rgba(0,0,0,.35);
+    }
+    .hero .left{padding:28px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#171722;border:1px solid rgba(255,255,255,.08);font-size:.9rem;color:var(--muted)}
+    h1{font-size:clamp(28px, 6vw, 56px); line-height:1.1; margin:14px 0 6px}
+    .subtitle{color:var(--muted); font-size:1.05rem}
+    .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+    .stat{background:#141421;border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 16px; text-align:center}
+    .stat b{font-size:1.2rem}
+
+    .hero .photo{
+      aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; position:relative; isolation:isolate; border:1px solid rgba(255,255,255,.08)
+    }
+    .photo img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.03)}
+    .photo::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(11,11,16,.35));}
+    .ribbon{
+      position:absolute; bottom:14px; left:14px; padding:8px 12px; border-radius:12px; font-weight:600;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 6px 22px rgba(122,92,255,.35)
+    }
+
+    section{padding:26px 0}
+    h2{font-size:clamp(22px,3.2vw,34px); margin:0 0 10px}
+    .muted{color:var(--muted)}
+
+    .timeline{display:grid; gap:14px}
+    .t-item{display:grid; grid-template-columns: auto 1fr; gap:14px; align-items:start}
+    .t-dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 6px rgba(255,255,255,.06)}
+    .t-card{padding:14px 16px; border-radius:14px; background:#141421; border:1px solid rgba(255,255,255,.08)}
+    .t-card small{color:var(--muted)}
+
+    .gallery{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px}
+    .gallery .g{aspect-ratio:1/1; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+    .gallery img{width:100%; height:100%; object-fit:cover}
+
+    .playlist iframe{width:100%; height:160px; border:0; border-radius:16px}
+
+    .secret{display:grid; gap:12px}
+    .secret input{width:100%; padding:12px 14px; border-radius:12px; background:#121222; color:#fff; border:1px solid rgba(255,255,255,.12)}
+    .secret .hidden-card{display:none; padding:16px; border-radius:16px; background:#131323; border:1px solid rgba(255,255,255,.08)}
+
+    footer{padding:30px 0 60px; color:var(--muted); text-align:center}
+
+    /* Responsivo */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+    }
+    @media (max-width: 700px){
+      .gallery{grid-template-columns: repeat(2, 1fr)}
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="heart">💖</span> <span>Nathan & Keury</span></div>
+      <div class="nav-actions">
+        <a class="btn" href="#timeline">Linha do tempo</a>
+        <a class="btn" href="#galeria">Galeria</a>
+        <a class="btn primary" href="#carta">Carta secreta</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <main class="container">
+    <section class="hero">
+      <div class="left card">
+        <span class="badge">Nossa história começou em <b id="start-date">26/09/2025</b></span>
+        <h1>Nathan & <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Keury</span></h1>
+        <p class="subtitle">Um cantinho só nosso, pra guardar momentos, sorrisos e promessas. 💌</p>
+        <div class="stats">
+          <div class="stat"><small>Juntos há</small><div><b id="days"></b> dias</div></div>
+          <div class="stat"><small>Desde</small><div><b id="since"></b></div></div>
+          <div class="stat"><small>Play de amor</small><div><b>🎧</b></div></div>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+          <a href="#timeline" class="btn">Ver nossa história</a>
+          <a href="#galeria" class="btn">Abrir galeria</a>
+        </div>
+      </div>
+      <div class="photo card">
+        <!-- TROQUE a imagem abaixo por uma foto de vocês -->
+        <img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?q=80&w=1200&auto=format&fit=crop" alt="Nós dois"/>
+        <div class="ribbon">Com amor, sempre 💞</div>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section id="timeline">
+      <h2>Linha do tempo</h2>
+      <p class="muted">Alguns marcos que guardamos no coração.</p>
+      <div class="timeline">
+        <!-- Exemplo de item -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card"><b>Primeira conversa</b> — <small>26/08/2025</small><br> Dia que eu respondi seu story. 😍</div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card"><b>Primeiro encontro</b> — <small>14/09/2025</small><br> A risada dela virou minha música favorita.
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card"><b>Nosso musica (Dona do Meu Coração - Catedral)</b> — <small>03/09/2025</small><br> Aquela música que define quem ela é pra mim.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALERIA ===== -->
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <p class="muted">Fotos que merecem replay infinito.</p>
+      <div class="gallery">
+        <!-- Troque os src pelos links/fotos de vocês -->
+        <div class="g"><img src="https://media-for2-1.cdn.whatsapp.net/v/t61.24694-24/521460894_25183883464535331_5504895085664160332_n.jpg?ccb=11-4&oh=01_Q5Aa2gGTgclrf7ltq8xjVOqwFGjSU5_mLBR9Q-5cgFL1FItkAg&oe=68CD5A4B&_nc_sid=5e03e0&_nc_cat=104" alt="foto 1"></div>
+        <div class="g"><img src="blob:https://web.whatsapp.com/fac7bb2d-572b-4200-99b1-e2d384f0a684" alt="foto 2"></div>
+        <div class="g"><img src="https://images.unsplash.com/photo-1512272828085-4aa5bce03b52?q=80&w=1200&auto=format&fit=crop" alt="foto 3"></div>
+        <div class="g"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop" alt="foto 4"></div>
+        <div class="g"><img src="https://images.unsplash.com/photo-1460364157752-926555421a7e?q=80&w=1200&auto=format&fit=crop" alt="foto 5"></div>
+        <div class="g"><img src="https://media-for2-1.cdn.whatsapp.net/v/t61.24694-24/534421984_2266944013761668_8492826932558953143_n.jpg?ccb=11-4&oh=01_Q5Aa2gHKA30JApgaOH0ba5aE-St_sQH9qFvw6-3sxEkTTD4afQ&oe=68CD50C4&_nc_sid=5e03e0&_nc_cat=104" alt="foto 6"></div>
+      </div>
+    </section>
+
+    <!-- ===== PLAYLIST ===== -->
+    <section class="playlist">
+      <h2>Nossa playlist</h2>
+      <p class="muted">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0HHi1Tc1Y1N65XgESSAPbH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
+      <!-- Cole o embed do Spotify aqui (troque o src): Spotify → Compartilhar → Incorporar playlist -->
+    </section>
+
+    <!-- ===== CARTA SECRETA ===== -->
+    <section id="carta">
+      <h2>💌 Carta secreta</h2>
+      <p class="muted">Tem algo aqui que é só nosso. Digite a senha que você sabe 😉</p>
+      <div class="secret card">
+        <input id="pwd" type="password" placeholder="Digite a senha (dica: nossa data?)" />
+        <button class="btn" id="reveal">Abrir</button>
+        <div class="hidden-card" id="letter">
+          <h3 style="margin-top:0">Pra você, meu amor</h3>
+          <p>
+            Desde <span id="since-inline"></span>, tudo ganhou outra cor. Você virou minha paz e meu fogo — os dois do jeitinho certo.
+            Eu prometo te cuidar nos detalhes: atenção, respeito e presença. Te amo.
+          </p>
+          <p class="muted" style="margin-bottom:0">Ass: Nathan 💘</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Feito com 💖 por Nathan — <span id="year"></span>
+  </footer>
+
+  <script>
+    // ===== CONFIGURAÇÕES SIMPLES =====
+    // 1) Coloque aqui a data em que vocês começaram a conversar (AAAA-MM-DD):
+    const START = '2025-08-26'; // <-- TROCAR AQUI
+
+    // 2) Defina a SENHA da carta secreta (ex: '09092025' ou alguma palavra)
+    const SECRET = 'NK 26.08.2025'; // <-- TROCAR AQUI
+
+    // 3) (Opcional) Mude os nomes no título <title> e no cabeçalho.
+
+    // ===== LÓGICA =====
+    const fmtBR = (d) => new Intl.DateTimeFormat('pt-BR').format(d);
+    const startDate = new Date(START + 'T00:00:00');
+    const today = new Date();
+
+    // Popular datas
+    document.getElementById('start-date').textContent = fmtBR(startDate);
+    document.getElementById('since').textContent = fmtBR(startDate);
+    document.getElementById('since-inline').textContent = fmtBR(startDate);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dias juntos
+    const ms = today - startDate;
+    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+    document.getElementById('days').textContent = days >= 0 ? days : 0;
+
+    // Carta secreta
+    const btn = document.getElementById('reveal');
+    const letter = document.getElementById('letter');
+    const pwd = document.getElementById('pwd');
+    btn.addEventListener('click', () => {
+      const ok = pwd.value.trim() === SECRET;
+      if(ok){
+        letter.style.display = 'block';
+        letter.scrollIntoView({behavior:'smooth', block:'start'});
+      } else {
+        alert('Senha incorreta 😅');
+      }
+    });
+
+    // Atalho bonitinho: tecla Enter também revela
+    pwd.addEventListener('keydown', (e)=>{ if(e.key==='Enter') btn.click(); });
+  </script>
+</body>
+</html>
