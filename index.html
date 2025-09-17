@@ -29,6 +29,16 @@
       color:var(--text);
       line-height:1.6;
     }
+        .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
     a{color:var(--brand)}
     .container{max-width:1100px;margin:0 auto;padding:24px}
     header.nav{
@@ -101,6 +111,18 @@
 
     /* Responsivo */
     @media (max-width: 900px){
+  .hero{grid-template-columns:1fr;}
+    }
+    
+    @media (max-width: 700px){
+      .gallery{grid-template-columns: repeat(2, 1fr);}
+    }
+    
+    @media (max-width: 500px){
+      .gallery{grid-template-columns: 1fr;} /* Fica 1 por linha no celular menor */
+    }
+
+    @media (max-width: 900px){
       .hero{grid-template-columns:1fr;}
     }
     @media (max-width: 700px){
@@ -140,7 +162,7 @@
       </div>
       <div class="photo card">
         <!-- TROQUE a imagem abaixo por uma foto de vocês -->
-        <img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto1.jpg?raw=true" alt="Nós dois"/>
+        <img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto1.jpg?raw=true" alt="Nós dois" loading="lazy"/>
         <div class="ribbon">Com amor, sempre 💞</div>
       </div>
     </section>
@@ -174,16 +196,16 @@
       <p class="muted">Fotos que merecem replay infinito.</p>
       <div class="gallery">
         <!-- Troque os src pelos links/fotos de vocês -->
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto00.jpg?raw=true" alt="foto 1"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto15.jpg?raw=true" alt="foto 2"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto3.jpg?raw=true" alt="foto 3"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto4.jpg?raw=true" alt="foto 4"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto14.jpg?raw=true" alt="foto 5"></div>        
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto16.jpg?raw=true" alt="foto 6"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto18.jpg?raw=true" alt="foto 7"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto19.jpg?raw=true" alt="foto 8"></div>        
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto20.jpg?raw=true" alt="foto 9"></div>
-        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto21.jpg?raw=true" alt="foto 10"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto00.jpg?raw=true" alt="foto 1" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto15.jpg?raw=true" alt="foto 2" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto3.jpg?raw=true" alt="foto 3" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto4.jpg?raw=true" alt="foto 4" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto14.jpg?raw=true" alt="foto 5" loading="lazy"></div>        
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto16.jpg?raw=true" alt="foto 6" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto18.jpg?raw=true" alt="foto 7" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto19.jpg?raw=true" alt="foto 8" loading="lazy"></div>        
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto20.jpg?raw=true" alt="foto 9" loading="lazy"></div>
+        <div class="g"><img src="https://github.com/Nathan-mrs/nosso-cantinho/blob/main/Foto21.jpg?raw=true" alt="foto 10" loading="lazy"></div>
       </div>
     </section>
 
@@ -277,6 +299,7 @@
   </script>
 </body>
 </html>
+
 
 
 
